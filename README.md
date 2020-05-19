@@ -54,42 +54,6 @@ mini-jvm HelloWold hello mini-jvm
 # 输入 mini-jvm -help 了解更多.
 ```
 
-### 彩蛋 1 , 理解 JVM 基于栈的解释器.
-
-```bash
-cat <<EOF > Sum10.java
-public class Sum10 {
-  public static void main(String[] args) {
-    int sum = sum10();
-    System.out.println(sum);
-  }
-  
-  public static int sum10() {
-    int sum = 0;
-    for (int i = 1; i <= 10; i++) {
-      sum += i;
-    }
-    return sum;
-  }
-}
-EOF
-
-javac Sum10.java
-java Sum10
-# => 55
-
-# 生成类汇编语言
-# mini-jvm --bc [classfile] [method]
-mini-jvm --bc Sum10.class sum10 > sum10.bc
-
-# 解释上一步生成的 sum10.bc
-# mini-jvm -- [bytecode file]
-mini-jvm -- sum10.bc
-# => 55
-
-# ================================
-```
-
 ## 快速体验 [其他操作系统]
 
 需要自行下载打包. [Dev](https://jvm.guxingke.com/#/dev)
@@ -120,6 +84,17 @@ mini-jvm -- sum10.bc
 - [如何构建你自己的 JVM (1) 解释器](https://www.guxingke.com/posts/how-to-build-your-own-jvm-2.html)
 - [如何构建你自己的 JVM (0) 概述](https://www.guxingke.com/posts/how-to-build-your-own-jvm-1.html)
 - [用 Java 实现一个简单的虚拟机 ?](https://www.guxingke.com/posts/mini-jvm-intro.html)
+
+## 建议
+- 在JDK1.8.0_121环境下发现编译不过的情况，详情见[#25](https://github.com/guxingke/mini-jvm/issues/25)，本项目的目的是学习JVM，为了项目足够小，清晰和易于理解，并不打算做各种适配工作，建议大家在MacOSX，Maven 3.3+,JDK 1.8.0_192+下学习；
+
+## 联系作者
+<details>
+<summary>微信群</summary>
+<p>加个人微信 `guxingke_`，备注 mini-jvm 拉你进群。</p>
+
+<img style="margin:0 auto;display:block;" src='docs/assets/imgs/wechat.jpeg'></img>
+</details>
 
 ## 参考
 - [The Java® Virtual Machine Specification](https://docs.oracle.com/javase/specs/jvms/se8/html/)
