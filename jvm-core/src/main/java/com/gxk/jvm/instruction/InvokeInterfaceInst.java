@@ -1,7 +1,7 @@
 package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
-import com.gxk.jvm.rtda.heap.Heap;
+import com.gxk.jvm.rtda.MetaSpace;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KMethod;
 import com.gxk.jvm.rtda.heap.KObject;
@@ -35,13 +35,13 @@ public class InvokeInterfaceInst implements Instruction {
 
   @Override
   public void execute(Frame frame) {
-    NativeMethod nm = Heap.findMethod(Utils.genNativeMethodKey( clazzName, methodName, methodDescriptor));
+    NativeMethod nm = MetaSpace.findMethod(Utils.genNativeMethodKey(clazzName, methodName, methodDescriptor));
     if (nm != null) {
       nm.invoke(frame);
       return;
     }
 
-    KClass clazz = Heap.findClass(this.clazzName);
+    KClass clazz = MetaSpace.findClass(this.clazzName);
     if (clazz == null) {
       clazz = frame.method.clazz.classLoader.loadClass(clazzName);
     }
@@ -49,23 +49,23 @@ public class InvokeInterfaceInst implements Instruction {
     if (!clazz.isStaticInit()) {
       KMethod cinit = clazz.getClinitMethod();
       if (cinit == null) {
-        throw new IllegalStateException();
-      }
-
-      // hack by native method
-      String key =Utils.genNativeMethodKey( cinit.clazz.name, cinit.name, cinit.descriptor);
-      NativeMethod ciNm = Heap.findMethod(key);
-      if (ciNm != null) {
-        ciNm.invoke(frame);
+        clazz.setStaticInit(2);
       } else {
-        Frame newFrame = new Frame(cinit, frame.thread);
-        clazz.setStaticInit(1);
-        KClass finalClass = clazz;
-        newFrame.setOnPop(() -> finalClass.setStaticInit(2));
-        frame.thread.pushFrame(newFrame);
+        // hack by native method
+        String key = Utils.genNativeMethodKey(cinit.clazz.name, cinit.name, cinit.descriptor);
+        NativeMethod ciNm = MetaSpace.findMethod(key);
+        if (ciNm != null) {
+          ciNm.invoke(frame);
+        } else {
+          Frame newFrame = new Frame(cinit, frame.thread);
+          clazz.setStaticInit(1);
+          KClass finalClass = clazz;
+          newFrame.setOnPop(() -> finalClass.setStaticInit(2));
+          frame.thread.pushFrame(newFrame);
 
-        frame.nextPc = frame.thread.getPc();
-        return;
+          frame.nextPc = frame.thread.getPc();
+          return;
+        }
       }
     }
 
@@ -80,13 +80,15 @@ public class InvokeInterfaceInst implements Instruction {
       // already load interface
       if (!clazz.getInterfaces().isEmpty()) {
         for (KClass intClass : clazz.getInterfaces()) {
-          method= intClass.getMethod(methodName, methodDescriptor);
+          method = intClass.getMethod(methodName, methodDescriptor);
           if (method != null) {
             break;
           }
         }
       } else {
         clazz.interfaceInit(frame);
+
+        frame.nextPc = frame.thread.getPc();
         return;
       }
     }
@@ -114,7 +116,7 @@ public class InvokeInterfaceInst implements Instruction {
     }
 
     // hack for lambda
-    nm = Heap.findMethod(Utils.genNativeMethodKey(implMethod.clazz.name, implMethod.name, implMethod.descriptor));
+    nm = MetaSpace.findMethod(Utils.genNativeMethodKey(implMethod.clazz.name, implMethod.name, implMethod.descriptor));
     if (nm != null) {
       // restore frame
       ArrayList<String> tmpArgs = new ArrayList<>(args);

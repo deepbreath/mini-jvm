@@ -3,7 +3,7 @@ package com.gxk.jvm.interpret;
 import com.gxk.jvm.instruction.Instruction;
 import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Thread;
-import com.gxk.jvm.rtda.heap.Heap;
+import com.gxk.jvm.rtda.MetaSpace;
 import com.gxk.jvm.rtda.heap.KArray;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KMethod;
@@ -34,10 +34,10 @@ public class Interpreter {
     for (int i = 0; i < args.length; i++) {
       kargs[i] = Utils.str2Obj(args[i], frame.method.clazz.classLoader);
     }
-    KClass arrClazz = Heap.findClass("[java/lang/String;");
+    KClass arrClazz = MetaSpace.findClass("[java/lang/String;");
     if (arrClazz == null) {
       arrClazz = new KClass(1, "[java/lang/String;", method.clazz.classLoader, null);
-      Heap.registerClass(arrClazz.name, arrClazz);
+      MetaSpace.registerClass(arrClazz.name, arrClazz);
     }
     KArray array = new KArray(arrClazz, kargs);
     frame.setRef(0, array);
@@ -55,11 +55,11 @@ public class Interpreter {
       while (superClazz != null) {
         if (!superClazz.isStaticInit()) {
           // interfaceInit
-          KMethod cinit = superClazz.getMethod("<clinit>", "()V");
+          KMethod cinit = superClazz.getClinitMethod();
           if (cinit == null) {
             superClazz.setStaticInit(2);
             frame.nextPc = frame.thread.getPc();
-            break;
+            continue;
           }
 
           Frame newFrame = new Frame(cinit, frame.thread);

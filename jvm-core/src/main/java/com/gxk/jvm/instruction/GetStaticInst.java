@@ -2,7 +2,7 @@ package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Slot;
-import com.gxk.jvm.rtda.heap.Heap;
+import com.gxk.jvm.rtda.MetaSpace;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KField;
 import com.gxk.jvm.rtda.heap.KMethod;
@@ -29,13 +29,13 @@ public class GetStaticInst implements Instruction {
 
   @Override
   public void execute(Frame frame) {
-    KClass kClass = Heap.findClass(clazz);
+    KClass kClass = MetaSpace.findClass(clazz);
     if (kClass == null) {
       kClass = frame.method.clazz.classLoader.loadClass(clazz);
     }
 
     if (!kClass.isStaticInit()) {
-      KMethod cinit = kClass.getMethod("<clinit>", "()V");
+      KMethod cinit = kClass.getClinitMethod();
       if (cinit == null) {
         throw new IllegalStateException();
       }
@@ -68,7 +68,7 @@ public class GetStaticInst implements Instruction {
       } else {
         List<KClass> interfaces = new ArrayList<>();
         for (String interfaceName : kClass.interfaceNames) {
-          KClass tmp = Heap.findClass(interfaceName);
+          KClass tmp = MetaSpace.findClass(interfaceName);
           if (tmp == null) {
             tmp = frame.method.clazz.classLoader.loadClass(interfaceName);
           }

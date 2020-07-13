@@ -2,13 +2,14 @@ package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Slot;
-import com.gxk.jvm.rtda.heap.Heap;
+import com.gxk.jvm.rtda.MetaSpace;
 import com.gxk.jvm.rtda.heap.KArray;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KField;
 import com.gxk.jvm.rtda.heap.KObject;
 
 public class LdcWInst implements Instruction {
+
   public final String descriptor;
   public final Object val;
 
@@ -32,12 +33,12 @@ public class LdcWInst implements Instruction {
         frame.pushFloat(((float) val));
         break;
       case "Ljava/lang/String":
-        KClass klass = Heap.findClass("java/lang/String");
+        KClass klass = MetaSpace.findClass("java/lang/String");
         if (klass == null) {
           klass = frame.method.clazz.classLoader.loadClass("java/lang/String");
         }
         if (!klass.isStaticInit()) {
-          Frame newFrame = new Frame(klass.getMethod("<clinit>", "()V"), frame.thread);
+          Frame newFrame = new Frame(klass.getClinitMethod(), frame.thread);
           klass.setStaticInit(1);
           KClass finalKlass = klass;
           newFrame.setOnPop(() -> finalKlass.setStaticInit(2));
@@ -56,7 +57,7 @@ public class LdcWInst implements Instruction {
           characters[i] = chars[i];
         }
         KArray arr = new KArray(arrClazz, characters);
-        field.val = new Slot[] {new Slot(arr)};
+        field.val = new Slot[]{new Slot(arr)};
         frame.pushRef(object);
         break;
       default:
