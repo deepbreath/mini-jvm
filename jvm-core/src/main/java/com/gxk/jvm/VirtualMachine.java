@@ -48,7 +48,6 @@ public class VirtualMachine {
     if (cmd.verboseTrace) {
       EnvHolder.verboseTrace = true;
     }
-
     if (cmd.verboseCall) {
       EnvHolder.verboseCall = true;
     }

@@ -1,6 +1,10 @@
 package com.gxk.jvm.classfile;
 
+
+
+
 public class Interface {
+
   public final String name;
 
   public Interface(String name) {
@@ -10,4 +14,5 @@ public class Interface {
   public String getName() {
     return name;
   }
+
 }

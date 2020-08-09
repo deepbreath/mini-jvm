@@ -7,6 +7,8 @@ package com.gxk.jvm.classfile;
 //    u2             attributes_count;
 //    attribute_info attributes[attributes_count];
 //    }
+
+
 public class Field {
 
   public final int accessFlags;

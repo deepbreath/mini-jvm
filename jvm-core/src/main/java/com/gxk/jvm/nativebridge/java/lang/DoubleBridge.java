@@ -8,6 +8,7 @@ import com.gxk.jvm.rtda.heap.KObject;
 public abstract class DoubleBridge {
 
   public static void registerNatives0() {
+
     MetaSpace.registerMethod("java/lang/Double_doubleToRawLongBits_(D)J", frame -> {
       java.lang.Double tmp = frame.popDouble();
       long v = java.lang.Double.doubleToRawLongBits(tmp);
@@ -18,7 +19,6 @@ public abstract class DoubleBridge {
       double v = java.lang.Double.longBitsToDouble(tmp);
       frame.pushDouble(v);
     });
-
     MetaSpace.registerMethod("java/lang/Double_valueOf_(D)Ljava/lang/Double;", frame -> {
       KClass clazz = MetaSpace.findClass("java/lang/Double");
       KObject kObject = clazz.newObject();

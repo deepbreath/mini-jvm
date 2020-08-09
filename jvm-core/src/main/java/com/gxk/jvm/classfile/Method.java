@@ -10,6 +10,7 @@ import com.gxk.jvm.classfile.attribute.LineNumberTable;
 //    u2             attributes_count;
 //    attribute_info attributes[attributes_count];
 //    }
+
 public class Method {
 
   public final int accessFlags;

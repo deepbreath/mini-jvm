@@ -7,4 +7,5 @@ public class Interfaces {
   public Interfaces(Interface[] interfaces) {
     this.interfaces = interfaces;
   }
+
 }
