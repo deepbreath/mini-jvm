@@ -2,6 +2,7 @@ package com.gxk.jvm.classfile.cp;
 
 import com.gxk.jvm.classfile.ConstantInfo;
 
+
 public class MethodDef extends ConstantInfo {
 
   public final int classIndex;

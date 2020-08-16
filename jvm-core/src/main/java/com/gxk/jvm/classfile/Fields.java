@@ -1,5 +1,8 @@
 package com.gxk.jvm.classfile;
 
+/**
+ *
+ */
 public class Fields {
   public final Field[] fields;
 

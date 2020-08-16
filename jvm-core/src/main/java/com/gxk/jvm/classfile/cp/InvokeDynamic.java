@@ -2,6 +2,9 @@ package com.gxk.jvm.classfile.cp;
 
 import com.gxk.jvm.classfile.ConstantInfo;
 
+/**
+ *
+ */
 public class InvokeDynamic extends ConstantInfo {
 
   public final int bootstrapMethodAttrIndex;

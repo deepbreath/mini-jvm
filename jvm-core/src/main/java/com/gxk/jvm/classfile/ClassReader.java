@@ -63,6 +63,7 @@ public abstract class ClassReader {
     int attributeCount = is.readUnsignedShort();
     Attributes attributes = readAttributes(is, attributeCount, constantPool);
 
+    //返回 ClassFile
     return new ClassFile(
         magic,
         minorVersion,
@@ -145,6 +146,13 @@ public abstract class ClassReader {
     return methods;
   }
 
+  /**
+   * 读取常量池里面的内容
+   * @param is
+   * @param cpSize
+   * @return
+   * @throws IOException
+   */
   private static ConstantPool readConstantPool(DataInputStream is, int cpSize) throws IOException {
     ConstantPool constantPool = new ConstantPool(cpSize);
     for (int i = 0; i < cpSize; i++) {

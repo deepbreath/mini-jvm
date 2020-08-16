@@ -3,6 +3,9 @@ package com.gxk.jvm.classfile.cp;
 import com.gxk.jvm.classfile.ConstantInfo;
 import com.gxk.jvm.classfile.MyByteArrayInputStream;
 
+/**
+ *
+ */
 public class Utf8 extends ConstantInfo {
 
   public final byte[] bytes;

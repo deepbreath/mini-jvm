@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 指令读取
+ */
 public abstract class InstructionReader {
 
   public static Instruction read(int opCode, MyDataInputStream stm, ConstantPool constantPool)
