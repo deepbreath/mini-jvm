@@ -2,8 +2,8 @@ package com.gxk.jvm.classfile.cp;
 
 import com.gxk.jvm.classfile.ConstantInfo;
 
-/***
- * 用来表示字段或者方法
+/**
+ * CONSTANT_NameAndType_info 结构用来表示字段或者方法，格式有下面三部分组成：
  */
 public class NameAndType extends ConstantInfo {
 

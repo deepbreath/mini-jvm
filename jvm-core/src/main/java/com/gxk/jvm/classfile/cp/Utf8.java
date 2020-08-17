@@ -4,7 +4,13 @@ import com.gxk.jvm.classfile.ConstantInfo;
 import com.gxk.jvm.classfile.MyByteArrayInputStream;
 
 /**
- *
+ *  存储的是经过 MUTF-8(modified UTF-8) 编码的字符串
+ *  这里的常量结构不明白
+ * {
+ *     u1 tag
+ *     u2 length
+ *     u1 byte[length]
+ * }
  */
 public class Utf8 extends ConstantInfo {
 
