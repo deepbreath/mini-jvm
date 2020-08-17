@@ -2,6 +2,9 @@ package com.gxk.jvm.classfile.attribute;
 
 import com.gxk.jvm.classfile.Attribute;
 
+/**
+ *
+ */
 public class BootstrapMethods extends Attribute {
 
   public final BootstrapMethod[] methods;
