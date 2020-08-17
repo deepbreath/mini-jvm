@@ -3,12 +3,14 @@ package com.gxk.jvm;
 public class Main {
 
   public static void main(String[] args) {
+
     if (args.length == 0) {
       printHelp();
       return;
     }
 
     Args cmd = Args.parseArgs(args);
+
     if (cmd.version) {
       System.out.println("java version \"1.8.0\"");
       return;
