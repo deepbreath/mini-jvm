@@ -1,5 +1,4 @@
 package com.gxk.jvm.classfile.cp;
-
 import com.gxk.jvm.classfile.ConstantInfo;
 
 /**

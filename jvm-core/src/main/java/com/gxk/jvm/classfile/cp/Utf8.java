@@ -24,6 +24,7 @@ public class Utf8 extends ConstantInfo {
   public final String getString() {
 
     MyByteArrayInputStream is = new MyByteArrayInputStream(bytes);
+
     StringBuilder sb = new StringBuilder();
     while (is.available() > 0) {
       int b = is.read();

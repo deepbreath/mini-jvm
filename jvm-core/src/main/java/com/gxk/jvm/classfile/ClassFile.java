@@ -19,7 +19,8 @@ import com.gxk.jvm.classfile.attribute.SourceFile;
  * 四个 Byte
  * u4
  * 1、2、4 字节无符号整数
- * ClassFile {
+ *
+ *  ClassFile {
  *     u4             magic;
  *     u2             minor_version;
  *     u2             major_version;
@@ -62,7 +63,7 @@ public class ClassFile {
   public final int minorVersion;
   /**
    * Class 文件版本号
-   * Class 文件的 第  7和第 8 个字节
+   * Class 文件的 第  7 和第 8 个字节
    * 从字段为 Class 主版本号
    * 设置版本号的目的是为了让虚拟机判断 Class 文件是否可以执行
    */
@@ -70,7 +71,6 @@ public class ClassFile {
   /**
    * 常量池中的常量数量（不固定）容量的计算 从 1 开始计算
    * 为什么从 1 开始计算
-   *
    */
   public final int constantPoolSize;
   /**
@@ -97,43 +97,53 @@ public class ClassFile {
    *
    */
   public final int accessFlags;
+
   /**
    * 类索引
    */
   public final int thisClass;
+
   /**
    * 父类索引
    */
   public final int superClass;
+
   /**
    * 接口索引数量
    */
   public final int interfacesCount;
+
   /**
    * 接口索引集合 u2 数据集合
    */
   public final Interfaces interfaces;
+
   /**
    * 字段表数量
    */
   public final int fieldCount;
+
   /**
    * 字段表
    * 用于表述接口或者类中的声明变量
    */
   public final Fields fields;
+
   /**
    * 方法表数量
    */
   public final int methodsCount;
+
   /**
    * 方法表
    */
   public final Methods methods;
+
   /**
    * 属性表数量
    */
   public final int attributesCount;
+
   /**
    * 属性表
    */
