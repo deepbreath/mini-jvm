@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ */
 public class InvokeInterfaceInst implements Instruction {
 
   public final String clazzName;

@@ -16,6 +16,9 @@ import com.gxk.jvm.util.Utils;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * 解释器
+ */
 public class Interpreter {
 
   public void interpret(KMethod method) {

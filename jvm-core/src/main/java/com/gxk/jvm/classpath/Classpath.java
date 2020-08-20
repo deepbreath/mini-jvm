@@ -5,6 +5,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 类加载路径
+ */
 public abstract class Classpath {
 
   public static Entry parse(String classpath) {
@@ -20,6 +23,11 @@ public abstract class Classpath {
     return entry;
   }
 
+  /**
+   *
+   * @param classpath
+   * @return
+   */
   public static Entry doParseCompositeEntry(String classpath) {
 
     List<Entry> entries = new ArrayList<>();
@@ -34,6 +42,11 @@ public abstract class Classpath {
     return new CompositeEntry(entries);
   }
 
+  /**
+   *
+   * @param path
+   * @return
+   */
   public static Entry parseEntry(String path) {
     Entry entry = null;
     if (isWildcard(path)) {
@@ -46,6 +59,11 @@ public abstract class Classpath {
     return entry;
   }
 
+  /**
+   *
+   * @param path
+   * @return
+   */
   public static Entry doParseWildcard(String path) {
     List<Entry> entries = new ArrayList<>();
     for (String name : new File(path).list()) {
@@ -69,10 +87,20 @@ public abstract class Classpath {
     return new File(path).isDirectory();
   }
 
+  /**
+   *
+   * @param path
+   * @return
+   */
   public static boolean isWildcard(String path) {
     return path.endsWith(EnvHolder.FILE_SEPARATOR + "*");
   }
 
+  /**
+   *
+   * @param path
+   * @return
+   */
   public static boolean isJar(String path) {
     return path.endsWith(".jar");
   }

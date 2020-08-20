@@ -6,6 +6,10 @@ import com.gxk.jvm.rtda.MetaSpace;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KField;
 
+
+/**
+ *
+ */
 public class PutStaticInst implements Instruction {
 
   public final String clazz;

@@ -1,7 +1,9 @@
 package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
-
+/**
+ *
+ */
 public class Ldc2wInst implements Instruction {
   public final Long val;
   public final Double val2;

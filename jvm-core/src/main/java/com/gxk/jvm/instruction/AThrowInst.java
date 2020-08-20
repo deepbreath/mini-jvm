@@ -4,6 +4,10 @@ import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Thread;
 import com.gxk.jvm.rtda.heap.KObject;
 
+
+/**
+ *
+ */
 public class AThrowInst implements Instruction {
 
   @Override

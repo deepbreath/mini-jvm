@@ -9,6 +9,9 @@ import com.gxk.jvm.rtda.heap.NativeMethod;
 import com.gxk.jvm.util.Utils;
 import java.util.List;
 
+/**
+ *
+ */
 public class InvokeStaticInst implements Instruction {
 
   public final String clazzName;

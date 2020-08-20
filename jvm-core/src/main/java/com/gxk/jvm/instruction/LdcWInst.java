@@ -7,7 +7,9 @@ import com.gxk.jvm.rtda.heap.KArray;
 import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KField;
 import com.gxk.jvm.rtda.heap.KObject;
-
+/**
+ *
+ */
 public class LdcWInst implements Instruction {
 
   public final String descriptor;

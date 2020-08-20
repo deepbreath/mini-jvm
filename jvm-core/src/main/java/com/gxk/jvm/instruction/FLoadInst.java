@@ -2,6 +2,9 @@ package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
 
+/**
+ *
+ */
 public class FLoadInst implements Instruction {
   public final int index;
 

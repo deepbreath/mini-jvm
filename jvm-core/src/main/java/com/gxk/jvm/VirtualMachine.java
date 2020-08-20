@@ -39,8 +39,14 @@ import com.gxk.jvm.rtda.heap.KObject;
 import com.gxk.jvm.util.EnvHolder;
 import com.gxk.jvm.util.Utils;
 
+/**
+ *
+ * 虚拟机器
+ *
+ */
 public class VirtualMachine {
 
+  //运行命令
   public void run(Args cmd) {
     if (cmd.verbose) {
       EnvHolder.verbose = true;
@@ -74,7 +80,9 @@ public class VirtualMachine {
   }
 
   public static void initVm(ClassLoader classLoader) {
+
     loadLibrary();
+
     loadFoundationClass(classLoader);
 
     initSystemOut(classLoader);
@@ -115,6 +123,7 @@ public class VirtualMachine {
     outField.val = new Slot[]{new Slot(psObj)};
 
   }
+
 
   private static void initSystemOut(ClassLoader classLoader) {
     KClass fdCls = classLoader.loadClass("java/io/FileDescriptor");

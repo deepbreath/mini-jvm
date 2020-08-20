@@ -3,6 +3,9 @@ package com.gxk.jvm.instruction;
 import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Slot;
 
+/**
+ *
+ */
 public class DupInst implements Instruction {
 
   @Override

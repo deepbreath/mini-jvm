@@ -6,6 +6,9 @@ import com.gxk.jvm.rtda.heap.KField;
 import com.gxk.jvm.rtda.heap.KObject;
 import com.gxk.jvm.util.Utils;
 
+/**
+ *
+ */
 public class GetFieldInst implements Instruction {
 
   public final String clazz;

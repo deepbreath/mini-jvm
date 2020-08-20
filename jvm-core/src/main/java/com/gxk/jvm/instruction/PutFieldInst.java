@@ -4,6 +4,10 @@ import com.gxk.jvm.rtda.Frame;
 import com.gxk.jvm.rtda.Slot;
 import com.gxk.jvm.rtda.heap.KObject;
 
+
+/**
+ *
+ */
 public class PutFieldInst implements Instruction {
   public final String clazz;
   public final String fieldName;

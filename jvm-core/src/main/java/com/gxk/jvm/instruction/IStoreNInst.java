@@ -1,7 +1,9 @@
 package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
-
+/**
+ *
+ */
 public class IStoreNInst implements Instruction {
   public final int n;
 

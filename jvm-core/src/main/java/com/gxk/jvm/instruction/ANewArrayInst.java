@@ -7,6 +7,9 @@ import com.gxk.jvm.rtda.heap.KClass;
 import com.gxk.jvm.rtda.heap.KMethod;
 import com.gxk.jvm.rtda.heap.KObject;
 
+/**
+ *
+ */
 public class ANewArrayInst implements Instruction {
 
   public final String className;

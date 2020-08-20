@@ -2,6 +2,11 @@ package com.gxk.jvm.instruction;
 
 import com.gxk.jvm.rtda.Frame;
 
+/**
+ *
+ * 指令
+ *
+ */
 public interface Instruction {
 
   default int offset() {

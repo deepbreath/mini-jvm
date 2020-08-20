@@ -8,6 +8,10 @@ import com.gxk.jvm.rtda.heap.NativeMethod;
 import com.gxk.jvm.util.Utils;
 import java.util.List;
 
+
+/**
+ *
+ */
 public class InvokeSpecialInst implements Instruction {
 
   public final String clazz;

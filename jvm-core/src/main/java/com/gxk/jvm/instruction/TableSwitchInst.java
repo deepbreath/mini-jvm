@@ -4,6 +4,9 @@ import com.gxk.jvm.rtda.Frame;
 
 import java.util.Map;
 
+/**
+ *
+ */
 public class TableSwitchInst implements Instruction {
   public final int offset;
   public final int def;

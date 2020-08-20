@@ -10,6 +10,9 @@ import com.gxk.jvm.rtda.heap.KMethod;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class GetStaticInst implements Instruction {
   public final String clazz;
   public final String fieldName;

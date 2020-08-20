@@ -8,6 +8,9 @@ import com.gxk.jvm.rtda.heap.KMethod;
 import com.gxk.jvm.rtda.heap.KObject;
 import com.gxk.jvm.rtda.heap.NativeMethod;
 
+/**
+ *
+ */
 public class NewInst implements Instruction {
 
   public final String clazz;

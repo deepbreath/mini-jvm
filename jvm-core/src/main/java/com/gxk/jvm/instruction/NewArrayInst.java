@@ -18,6 +18,10 @@ primitiveArrayInfo(9,  0'S, short,   int).
 primitiveArrayInfo(10, 0'I, int,     int).
 primitiveArrayInfo(11, 0'J, long,    long).
  */
+
+/**
+ *
+ */
 public class NewArrayInst implements Instruction {
   private static Map<Integer, String> MAPPING = new HashMap<>(8);
   static {

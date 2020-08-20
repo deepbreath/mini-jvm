@@ -16,7 +16,9 @@ public class CompositeEntry implements Entry {
     for (Entry entry : entries) {
       ClassFile cf = entry.findClass(name);
       if (cf != null) {
+
         return cf;
+
       }
     }
     return null;
