@@ -7,4 +7,5 @@ public final class ExceptionTable {
   public ExceptionTable(Exception[] exceptions) {
     this.exceptions = exceptions;
   }
+
 }

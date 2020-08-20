@@ -3,6 +3,9 @@ package com.gxk.jvm.classfile;
 import java.io.DataInputStream;
 import java.io.IOException;
 
+/**
+ *
+ */
 public class MyDataInputStream extends DataInputStream {
 
   public MyDataInputStream(MyByteArrayInputStream in) {

@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 指令读取
+ */
 public abstract class InstructionReader {
 
   public static Instruction read(int opCode, MyDataInputStream stm, ConstantPool constantPool)
@@ -67,10 +70,13 @@ public abstract class InstructionReader {
             String string = Utils.getString(constantPool, stringIndex);
             return new LdcInst("Ljava/lang/String", string);
           case CONSTANT_Integer:
+
             return new LdcInst("I", ((IntegerCp) info).val);
           case CONSTANT_Float:
+
             return new LdcInst("F", ((FloatCp) info).val);
           case CONSTANT_Class:
+
             return new LdcInst("L", Utils.getString(constantPool, ((ClassCp) info).nameIndex));
         }
         throw new IllegalStateException();

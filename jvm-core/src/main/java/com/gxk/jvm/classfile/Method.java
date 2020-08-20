@@ -10,6 +10,10 @@ import com.gxk.jvm.classfile.attribute.LineNumberTable;
 //    u2             attributes_count;
 //    attribute_info attributes[attributes_count];
 //    }
+
+/**
+ * 方法索引结构
+ */
 public class Method {
 
   public final int accessFlags;
