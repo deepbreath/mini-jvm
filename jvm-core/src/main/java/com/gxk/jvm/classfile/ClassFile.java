@@ -95,6 +95,15 @@ public class ClassFile {
    * 如果是类的话，是否被声明为 final；
    * 标志位信息：https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4
    *
+   * Flag Name          Value(十六进制值)      Interpretation
+   * ACC_PUBLIC           1                    标识是否是 public
+   * ACC_FINAL            10                   标识是否是 final
+   * ACC_SUPER            20                   已经不用了
+   * ACC_INTERFACE        200                  标识是类还是接口
+   * ACC_ABSTRACT         400                  标识是否是 abstract
+   * ACC_SYNTHETIC        1000                 编译器自动生成，不是用户源代码编译生成
+   * ACC_ANNOTATION       2000                 标识是否是注解类
+   * ACC_ENUM             4000                 标识是否是枚举类
    */
   public final int accessFlags;
 

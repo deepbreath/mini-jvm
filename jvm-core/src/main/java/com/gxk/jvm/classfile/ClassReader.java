@@ -27,6 +27,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public abstract class ClassReader {
 
   public static ClassFile read(String path) throws IOException {
