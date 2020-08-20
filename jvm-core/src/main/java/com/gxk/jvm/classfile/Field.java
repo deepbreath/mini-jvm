@@ -28,8 +28,8 @@ public class Field {
    *
    */
   public final int accessFlags;
-  //字段名的索引值，指向常量池的的字符串常量。（这里为什么直接使用了字段名称而不是索引？）
 
+  //字段名的索引值，指向常量池的的字符串常量。（这里为什么直接使用了字段名称而不是索引？）
   public final String name;
   /**
    * 当定义一个 int 类型的变量时，类文件中存储的类型并不是字符串的int，而是使用了更精简的 I 来表示。

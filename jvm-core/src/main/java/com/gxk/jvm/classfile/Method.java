@@ -12,7 +12,7 @@ import com.gxk.jvm.classfile.attribute.LineNumberTable;
 //    }
 
 /**
- * 方法索引结构
+ * 方法结构
  */
 public class Method {
 

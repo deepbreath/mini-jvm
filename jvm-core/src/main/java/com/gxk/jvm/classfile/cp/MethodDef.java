@@ -2,10 +2,12 @@ package com.gxk.jvm.classfile.cp;
 import com.gxk.jvm.classfile.ConstantInfo;
 
 /**
- * CONSTANT_Methodref_info
- *
  * 方法 = 方法所属的类 + 方法名 + 方法参数和返回值描述符
  * 这就是 CONSTANT_Methodref_info 的作用，它表示类中方法的符号引用
+ * CONSTANT_Methodref_info    tag=10
+ *
+ *
+ *
  *
  */
 public class MethodDef extends ConstantInfo {

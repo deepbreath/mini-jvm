@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *字段表
+ *字段属性表
  */
 public class Fields {
   //字段集合

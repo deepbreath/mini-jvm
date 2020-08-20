@@ -21,6 +21,7 @@ public class Utf8 extends ConstantInfo {
     this.bytes = bytes;
   }
 
+  //MUTF-8 到 UTF-8 由于编码不一样，需要进行转换
   public final String getString() {
 
     MyByteArrayInputStream is = new MyByteArrayInputStream(bytes);

@@ -1,5 +1,8 @@
 package com.gxk.jvm.classfile;
 
+/**
+ *
+ */
 public abstract class AttributeEnum {
 
   // Five attributes are critical to correct interpretation of the class file by the Java Virtual Machine:

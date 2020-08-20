@@ -4,8 +4,10 @@ import com.gxk.jvm.classfile.ConstantInfo;
 
 /**
  * 从 JDK 1.7 开始引入的三个常量之一
- *CONSTANT_InvokeDynamic_info 主要为 invokedynamic 指令提供启动引导方法
+ * 主要为 invokedynamic 指令提供启动引导方法
  * 调用动态语言
+ * CONSTANT_InvokeDynamic_info   tag=18
+ *
  */
 public class InvokeDynamic extends ConstantInfo {
 

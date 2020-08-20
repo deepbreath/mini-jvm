@@ -9,7 +9,6 @@ import com.gxk.jvm.classfile.Attribute;
  *     u2 sourcefile_index;
  *   }
  */
-
 public class SourceFile extends Attribute {
 
   public final String name;

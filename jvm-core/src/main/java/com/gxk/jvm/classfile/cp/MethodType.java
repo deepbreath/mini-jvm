@@ -3,8 +3,8 @@ package com.gxk.jvm.classfile.cp;
 import com.gxk.jvm.classfile.ConstantInfo;
 
 /**
- *从 JDK 1.7 开始引入的三个常量之一
- *
+ * 从 JDK 1.7 开始引入的三个常量之一
+ * CONSTANT_MethodType_info  tag=16
  */
 public class MethodType extends ConstantInfo {
 

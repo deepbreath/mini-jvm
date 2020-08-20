@@ -1,6 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
+ * 存放对应的常量值
  * Constant Type	Value
  * CONSTANT_Class	7
  * CONSTANT_Fieldref	9

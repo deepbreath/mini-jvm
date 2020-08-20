@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- * 接口索引结构
+ * 接口结构
  */
 public class Interface {
   

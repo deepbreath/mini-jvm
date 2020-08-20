@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *
+ *属性
  */
 public class Attributes {
 

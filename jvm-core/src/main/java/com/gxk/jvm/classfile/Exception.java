@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *
+ * 异常
  */
 public class Exception {
 

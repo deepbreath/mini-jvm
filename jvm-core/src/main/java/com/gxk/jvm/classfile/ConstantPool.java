@@ -1,9 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *
  * 常量池
- *
  */
 public class ConstantPool {
 

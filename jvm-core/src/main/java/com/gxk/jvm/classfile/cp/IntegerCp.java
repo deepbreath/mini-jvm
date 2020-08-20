@@ -4,6 +4,7 @@ import com.gxk.jvm.classfile.ConstantInfo;
 
 /**
  * 整数常量
+ * CONSTANT_Integer_info  tag=3
  */
 public class IntegerCp extends ConstantInfo {
 

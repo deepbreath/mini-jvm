@@ -1,6 +1,8 @@
 package com.gxk.jvm.classfile;
 
-
+/**
+ *
+ */
 public class CodeAttribute {
   public final CodeFromByte code;
   public final int maxLocals;
