@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *
+ * 描述词
  */
 public class Descriptor {
 

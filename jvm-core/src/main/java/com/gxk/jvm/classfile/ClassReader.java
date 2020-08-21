@@ -28,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 读取 .class 类文件
  */
 public abstract class ClassReader {
+
 
   public static ClassFile read(String path) throws IOException {
 
@@ -43,27 +44,37 @@ public abstract class ClassReader {
   }
 
   public static ClassFile read(DataInputStream is) throws IOException {
+    //读取魔数
     int magic = is.readInt();
+    //读取次版本号
     int minorVersion = is.readUnsignedShort();
+    //读取主版本号
     int majorVersion = is.readUnsignedShort();
-
+    //读取常量池数量大小
     int cpSize = is.readUnsignedShort();
+    //读取常量池
     ConstantPool constantPool = readConstantPool(is, cpSize - 1);
-
+    //读取访问标志
     int accessFlag = is.readUnsignedShort();
+    //读取类索引
     int thisClass = is.readUnsignedShort();
+    //读取父类索引
     int superClass = is.readUnsignedShort();
-
+    //读取接口数量
     int interfaceCount = is.readUnsignedShort();
+    //读取接口信息
     Interfaces interfaces = readInterfaces(is, interfaceCount, constantPool);
-
+    //读取字段数量
     int fieldCount = is.readUnsignedShort();
+    //读取字段信息
     Fields fields = readFields(is, fieldCount, constantPool);
-
+    //读取方法数量
     int methodCount = is.readUnsignedShort();
+    //读取方法集合
     Methods methods = readMethods(is, methodCount, constantPool);
-
+    //读取属性数量
     int attributeCount = is.readUnsignedShort();
+    //读取属性
     Attributes attributes = readAttributes(is, attributeCount, constantPool);
 
     //返回 ClassFile
@@ -87,6 +98,14 @@ public abstract class ClassReader {
     );
   }
 
+  /**
+   *
+   * @param is
+   * @param fieldCount
+   * @param constantPool
+   * @return
+   * @throws IOException
+   */
   private static Fields readFields(DataInputStream is, int fieldCount, ConstantPool constantPool)
       throws IOException {
     Field[] fields = new Field[fieldCount];
@@ -109,6 +128,14 @@ public abstract class ClassReader {
     return new Fields(fields);
   }
 
+  /**
+   *
+   * @param is
+   * @param interfaceCount
+   * @param cp
+   * @return
+   * @throws IOException
+   */
   private static Interfaces readInterfaces(DataInputStream is, int interfaceCount, ConstantPool cp)
       throws IOException {
     Interface[] interfaces = new Interface[interfaceCount];
@@ -127,6 +154,15 @@ public abstract class ClassReader {
 //    u2             attributes_count;
 //    attribute_info attributes[attributes_count];
 //    }
+
+  /**
+   *
+   * @param is
+   * @param methodCount
+   * @param constantPool
+   * @return
+   * @throws IOException
+   */
   private static Methods readMethods(DataInputStream is, int methodCount,
       ConstantPool constantPool) throws IOException {
     Methods methods = new Methods(methodCount);
@@ -235,6 +271,15 @@ public abstract class ClassReader {
 //    u4 attribute_length;
 //    u1 info[attribute_length];
 //  }
+
+  /**
+   * 读取类属性
+   * @param is
+   * @param attributeCount
+   * @param constantPool
+   * @return
+   * @throws IOException
+   */
   private static Attributes readAttributes(DataInputStream is, int attributeCount,
       ConstantPool constantPool)
       throws IOException {
