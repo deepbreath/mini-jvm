@@ -1,7 +1,7 @@
 package com.gxk.jvm.classfile;
 
 /**
- *
+ * 属性表的枚举
  */
 public abstract class AttributeEnum {
 
