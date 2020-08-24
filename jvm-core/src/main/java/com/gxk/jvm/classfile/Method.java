@@ -15,6 +15,10 @@ import com.gxk.jvm.classfile.attribute.LineNumberTable;
  *     attribute_info attributes[attributes_count];
  *     }
  *
+ *  比如方法Object foo(int i, double d, Thread t)的描述符为(IDLjava/lang/Thread;)Ljava/lang/Object;，
+ *  其中 "I" 表示第一个参数 i 的参数类型 int，"D" 表示第二个参数 d 的类型 double，
+ *  "Ljava/lang/Thread;"表示第三个参数 t 的类型 Thread，"Ljava/lang/Object;" 表示返回值类型 Object
+ *
  */
 public class Method {
   //表示方法的访问标记，是 public、private 还是 protected，是否是 static，是否是 final 等。

@@ -303,7 +303,7 @@ public abstract class ClassReader {
 
           int codeLength = is.readInt();
           byte[] byteCode = Utils.readNBytes(is, codeLength);
-
+          //针对指令的读取
           Instruction[] instructions = readByteCode(byteCode, constantPool);
 
           int exceptionTableLength = is.readUnsignedShort();
