@@ -11,6 +11,7 @@ import com.gxk.jvm.classfile.MyByteArrayInputStream;
  *     u2 length
  *     u1 byte[length]
  * }
+ * CONSTANT_Utf8_info
  */
 public class Utf8 extends ConstantInfo {
 

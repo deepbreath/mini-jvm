@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /**
- *
+ * 读取 Class 文件输入数据
  */
 public class MyDataInputStream extends DataInputStream {
 
