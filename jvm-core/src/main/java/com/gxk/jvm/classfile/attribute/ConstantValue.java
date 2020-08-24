@@ -20,7 +20,6 @@ public class ConstantValue extends Attribute {
 
   public final Object val;
 
-
   public ConstantValue(Object val) {
     this.val = val;
   }

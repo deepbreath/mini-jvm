@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+
 public class DirEntry implements Entry {
 
   public final String dirPath;

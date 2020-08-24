@@ -10,8 +10,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- *
- *Code 属性表的字段含义如下：
+ * 包含所有方法的字节码
+ * Code 属性表的字段含义如下：
  *
  * 属性名索引（attribute_name_index）占两个字节，指向常量池中 CONSTANT_Utf8_info 常量，
  *
