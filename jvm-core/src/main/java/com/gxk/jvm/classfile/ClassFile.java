@@ -43,6 +43,7 @@ import com.gxk.jvm.classfile.attribute.SourceFile;
  * "My Very Cute Animal Turns Savage In Full Moon Areas."
  * My             V                  C             A           T            S            I        F        M       A
  * magic  minor&magor_version  constant_pool  access_flags  this_class  super_class interfaces  fields  methods attributes
+ *
  */
 public class ClassFile {
 

@@ -2,11 +2,13 @@ package com.gxk.jvm.classfile;
 
 /**
  * 属性表的枚举
+ * 虚拟机预定义了32种属性
  */
 public abstract class AttributeEnum {
 
   // Five attributes are critical to correct interpretation of the class file by the Java Virtual Machine:
   public static final String ConstantValue = "ConstantValue";
+  //Code 属性是类文件中最重要的组成部分，它包含了所有方法的字节码
   public static final String Code = "Code";
   public static final String StackMapTable = "StackMapTable";
   public static final String Exceptions = "Exceptions";

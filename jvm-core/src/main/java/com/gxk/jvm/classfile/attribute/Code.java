@@ -39,13 +39,6 @@ import java.util.Map;
  *
  * attributes_count 和 attributes[] 用来表示 Code 属性相关的附属属性，
  *
- * Java 虚拟机规定 Code 属性只能包含这四种可选属性：LineNumberTable、LocalVariableTable、LocalVariableTypeTable、StackMapTable。
- *
- * 以LineNumberTable 为例，LineNumberTable 用来存放源码行号和字节码偏移量之间的对应关系，这 LineNumberTable 属于调试信息，
- *
- * 不是类文件运行的必需的属性，默认情况下都会生成。如果没有这两个属性，那么在调试时没有办法在源码中设置断点，
- *
- * 也没有办法在代码抛出异常的时候在错误堆栈中显示出错的行号信息。
  *
  *  Code_attribute {
  *     u2 attribute_name_index;
@@ -68,8 +61,22 @@ public class Code extends Attribute {
 
   public final int maxStacks;
   public final int maxLocals;
+  //指令数组？
   public final Instruction[] instructions;
+
+  //异常表
   public final ExceptionTable exceptionTable;
+
+  /**
+   * Java 虚拟机规定 Code 属性只能包含这四种可选属性：LineNumberTable、LocalVariableTable、LocalVariableTypeTable、StackMapTable。
+   *
+   *  以LineNumberTable 为例，LineNumberTable 用来存放源码行号和字节码偏移量之间的对应关系，这 LineNumberTable 属于调试信息，
+   *
+   *  不是类文件运行的必需的属性，默认情况下都会生成。如果没有这两个属性，那么在调试时没有办法在源码中设置断点，
+   *
+   *  也没有办法在代码抛出异常的时候在错误堆栈中显示出错的行号信息。
+   *
+   */
   public final Attributes attributes;
 
   public Code(int maxStacks, int maxLocals, Instruction[] instructions,
